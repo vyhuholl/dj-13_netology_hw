@@ -3,7 +3,7 @@
 {% block content %}
     <h2>Список отчетов:</h2>
     {% if date %}
-      <h4>{{ date }}</h4>
+      <h4>{{ date|date:"d F Y" }} г.</h4>
       <a class="waves-effect waves-light btn" href="{% url "file_list" %}">Убрать фильтр по дате</a>
     {% endif %}
     <ul class="collection">
@@ -12,16 +12,16 @@
         <i class="material-icons circle green">insert_chart</i>
           <span class="title"><a href="{% url "file_content" name=f.name %}">{{ f.name }}</a></span>
         <p>
-          Создан: {% if date == f.ctime.date %}
-            {{ f.ctime }}
+          Создан: {% if date.date == f.ctime.date %}
+            {{ f.ctime|date:"d F Y" }} г. {{ f.ctime|time:"H:i" }}
           {% else %}
-            <a href="{% url "file_list" date=f.ctime %}">{{ f.ctime.date }}</a> {{ f.mtime.time }}
+            <a href="{% url "file_list" date=f.ctime|date:"Y-m-d" %}">{{ f.ctime|date:"d F Y" }} г.</a> {{ f.ctime|time:"H:i" }}
           {% endif %}
           <br>
-          Изменен: {% if date == f.mtime.date %}
-            {{ f.mtime }}
+          Изменен: {% if date.date == f.mtime.date %}
+            {{ f.mtime|date:"d F Y" }} г. {{ f.mtime|time:"H:i" }}
           {% else %}
-            <a href="{% url "file_list" date=f.mtime %}">{{ f.mtime.date }}</a> {{ f.mtime.time }}
+            <a href="{% url "file_list" date=f.mtime|date:"Y-m-d" %}">{{ f.mtime|date:"d F Y" }} г.</a> {{ f.mtime|time:"H:i" }}
           {% endif %}
         </p>
       </li>
