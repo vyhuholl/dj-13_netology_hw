@@ -2,23 +2,24 @@ from django.shortcuts import render
 
 
 def home_view(request):
-    template_name = 'app/home.html'
-    return render(request, template_name)
+    return render(
+        request, 'app/home.html',
+        context={'current_page': 'home'})
 
 
 def about_view(request):
-    template_name = 'app/about.html'
-    return render(request, template_name)
+    return render(
+        request, 'app/about.html',
+        context={'current_page': 'about'})
 
 
 def contacts_view(request):
-    template_name = 'app/contacts.html'
-    return render(request, template_name)
+    return render(
+        request, 'app/contacts.html',
+        context={'current_page': 'contacts'})
 
 
 def examples_view(request):
-    template_name = 'app/examples.html'
-
     items = [{
         'title': 'Apple II',
         'text': 'Легенда',
@@ -32,8 +33,6 @@ def examples_view(request):
         'text': 'Оригинальный и прозрачный',
         'img': 'imac.jpg'
     }]
-    context = {
-        'items': items
-    }
-    return render(request, template_name,
-                  context)
+    return render(
+        request, 'app/examples.html',
+        context={'items': items, 'current_page': 'examples'})
