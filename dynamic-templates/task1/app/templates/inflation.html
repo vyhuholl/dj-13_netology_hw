@@ -60,15 +60,15 @@
         <tr>
           {% for value in row %}
             {% if row == "Год" or row == "Суммарная" or value == "-" or value >= 0 and value < 1 %}
-              <td>value</td>
+              <td>{{ value }}</td>
             {% elif value < 0 %}
-              <td class="negative">value</td>
+              <td class="negative">{{ value }}</td>
             {% elif value < 2 %}
-              <td class="one_to_two">value</td>
+              <td class="one_to_two">{{ value }}</td>
             {% elif value < 5 %}
-              <td class="two_to_five">value</td>
+              <td class="two_to_five">{{ value }}</td>
             {% else %}
-              <td class="more_than_five">value</td>
+              <td class="more_than_five">{{ value }}</td>
             {% endif %}
           {% endfor %}
         </tr>
