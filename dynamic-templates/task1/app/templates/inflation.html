@@ -1,28 +1,78 @@
-<!DOCTYPE html>{% load static %}
-<html>
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
   <head>
     <meta charset="UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Инфляция в России</title>
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+      caption {
+        font-size: 300%;
+        text-align: center;
+      }
+
+      tr {
+        text-align: center;
+        width: 50px;
+      }
+      .last {
+        background-color: grey;
+        width: 150px;
+      }
+
+      th {
+        padding: 15px;
+      }
+      .negative {
+        background-color: green;
+      }
+      .one_to_two {
+        background-color: lightpink;
+      }
+      .two_to_five {
+        background-color: indianred;
+      }
+      .more_than_five {
+        background-color: red;
+      }
+    </style>
   </head>
 
   <body>
-    {% block content %}
-      <div class="row">
-        <h1 class="col s12">Инфляция в России</h1>
-        <div class="col s12 m8">
-        
-        <!-- Ваша логика -->
-
-        </div>
-      </div>
-    {% endblock %}
-
+    <table align="center" cols="14" height="100%" rules="rows">
+      <caption>Инфляция в России</caption>
+      <tr>
+        {% for fieldname in fieldnames %}
+          {% if fieldname != "Суммарная" %}
+            <th>{{ fieldname }}</th>
+          {% else %}
+            <th class="last">{{ fieldname }}</th>
+          {% endif %}
+        {% endfor %}
+      </tr>
+      {% for row in data %}
+        <tr>
+          {% for value in row %}
+            {% if row == "Год" or row == "Суммарная" or value == "-" or value >= 0 and value < 1 %}
+              <td>value</td>
+            {% elif value < 0 %}
+              <td class="negative">value</td>
+            {% elif value < 2 %}
+              <td class="one_to_two">value</td>
+            {% elif value < 5 %}
+              <td class="two_to_five">value</td>
+            {% else %}
+              <td class="more_than_five">value</td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
   </body>
 </html>
