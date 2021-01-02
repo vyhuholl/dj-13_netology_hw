@@ -12,47 +12,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
     <style>
+      table {
+        align-self: center;
+        height: 100%;
+        border-bottom: 2px solid powderblue;
+      }
+
       caption {
+        text-align: center;
         font-size: 300%;
-        text-align: center;
       }
 
-      tr {
-        text-align: center;
+      th, td {
         width: 50px;
+        padding: 10px;
+        text-align: center;
       }
-      .last {
-        background-color: grey;
-        width: 150px;
-      }
-
-      th {
-        padding: 15px;
-      }
-      .negative {
+      .green {
         background-color: green;
       }
-      .one_to_two {
+      .light_red {
         background-color: lightpink;
       }
-      .two_to_five {
+      .medium_red {
         background-color: indianred;
       }
-      .more_than_five {
+      .dark_red {
         background-color: red;
+      }
+      .last_col {
+        width: 150px;
+        background-color: grey;
       }
     </style>
   </head>
 
   <body>
-    <table align="center" cols="14" height="100%" rules="rows">
+    <table>
       <caption>Инфляция в России</caption>
       <tr>
         {% for fieldname in fieldnames %}
           {% if fieldname != "Суммарная" %}
             <th>{{ fieldname }}</th>
           {% else %}
-            <th class="last">{{ fieldname }}</th>
+            <th class="last_col">{{ fieldname }}</th>
           {% endif %}
         {% endfor %}
       </tr>
@@ -62,13 +65,13 @@
             {% if row == "Год" or row == "Суммарная" or value == "-" or value >= 0 and value < 1 %}
               <td>{{ value }}</td>
             {% elif value < 0 %}
-              <td class="negative">{{ value }}</td>
+              <td class="green">{{ value }}</td>
             {% elif value < 2 %}
-              <td class="one_to_two">{{ value }}</td>
+              <td class="light_red">{{ value }}</td>
             {% elif value < 5 %}
-              <td class="two_to_five">{{ value }}</td>
+              <td class="medium_red">{{ value }}</td>
             {% else %}
-              <td class="more_than_five">{{ value }}</td>
+              <td class="dark_red">{{ value }}</td>
             {% endif %}
           {% endfor %}
         </tr>
