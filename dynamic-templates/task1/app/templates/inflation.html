@@ -62,16 +62,22 @@
       {% for row in data %}
         <tr>
           {% for value in row %}
-            {% if row == "Год" or row == "Суммарная" or value == "-" or value >= 0 and value < 1 %}
-              <td>{{ value }}</td>
-            {% elif value < 0 %}
-              <td class="green">{{ value }}</td>
-            {% elif value < 2 %}
-              <td class="light_red">{{ value }}</td>
-            {% elif value < 5 %}
-              <td class="medium_red">{{ value }}</td>
+            {% if value|get_type == 'NoneType' %}
+              <td>-</td>
+            {% elif value|get_type == 'str' %}
+              <td class="last_col">{{ value }}</td>
+            {% elif value|get_type == 'float' %}
+              {% if value < 0 %}
+                <td class="green">{{ value }}</td>
+              {% elif value >= 1 and value < 2 %}
+                <td class="light_red">{{ value }}</td>
+              {% elif value >= 2 and value < 5 %}
+                <td class="medium_red">{{ value }}</td>
+              {% elif value >= 5 %}
+                <td class="dark_red">{{ value }}</td>
+              {% endif %}
             {% else %}
-              <td class="dark_red">{{ value }}</td>
+              <td>{{ value }}</td>
             {% endif %}
           {% endfor %}
         </tr>
