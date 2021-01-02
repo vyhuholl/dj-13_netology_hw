@@ -17,7 +17,7 @@ def transform(key, value):
     if not value:
         return None
     elif key == 'Год':
-        return date(value, 1, 1)
+        return date(int(value), 1, 1)
     return float(value) if key != 'Суммарная' else value
 
 
