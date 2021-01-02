@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import home_view, about_view, contacts_view, \
+from app.views import home_view, about_view, contacts_view, \
     examples_view
 
 
