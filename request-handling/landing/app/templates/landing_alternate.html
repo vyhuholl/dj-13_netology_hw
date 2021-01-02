@@ -1,19 +1,14 @@
 {% extends "_base.html" %}
-
 {% load static %}
 
 {% block content %}
-
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
-    </div>
-  </nav>
-
-  <img class="responsive-img" src="{% static "img/animal-blur-close-up-840326.jpg" %}">
-
-  <div class="row center">
-    <a href="{% url "index" %}?from-landing=test" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">
-      Кликни на ссылочку!</a>
+<nav class="white">
+  <div class="nav-wrapper container">
+    <a class="brand-logo" id="logo-container" href="#">Logo</a>
   </div>
+</nav>
+<img class="responsive-img" src="{% static "img/animal-blur-close-up-840326.jpg" %}">
+<div class="row center">
+  <a class="btn-large waves-effect waves-light teal lighten-1" id="download-button" href="{% url "index" %}?from-landing=test" >Кликни на ссылочку!</a>
+</div>
 {% endblock %}
