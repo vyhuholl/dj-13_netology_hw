@@ -8,7 +8,7 @@ from django.shortcuts import render
 register = template.Library()
 
 
-@register.filter
+@register.filter(name='get_type')
 def get_type(obj):
     return type(obj).__name__
 
