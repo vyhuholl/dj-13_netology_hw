@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import top_reddit_view
+from app.views import top_reddit_view
 
 urlpatterns = [
     path('', top_reddit_view, name='top_reddit'),
