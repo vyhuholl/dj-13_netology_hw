@@ -7,7 +7,17 @@
     <h1>Телефон</h1>
   </div>
   <div class="content">
-    {# Здесь должен быть телефон #}
+    <div class="col s12 m8">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ product.image }}">
+        </div>
+        <div class="card-content">
+          <span class="card-title blue-text">{{ product.name }}</span>
+          <b>Стоимость: {{ product.price }} p.</b>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
