@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 # Вместо urllib.parse.urlencode я использовала практически
-# идентичную функцию urlencode из django.utils.http.
+# идентичную функцию urlencode из django.utils.http
 
 
 def index(request):
