@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from phones.models import Phone
 
 
 def show_catalog(request):
