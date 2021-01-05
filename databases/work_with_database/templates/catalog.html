@@ -19,7 +19,7 @@
   <div class="content">
     {% for item in products %}
     <div class="row">
-      <a href="{% url "product" {{ item.slug }} %}"><h1>{{ item.name }}</h1></a>
+      <a href="{% url "product" slug=item.slug %}"><h1>{{ item.name }}</h1></a>
       <br>
       <b>Стоимость: {{ item.price }} p.</b>
       <br>
