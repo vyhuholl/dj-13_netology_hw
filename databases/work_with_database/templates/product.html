@@ -4,17 +4,16 @@
 {% block content %}
 <div class="container">
   <div class="header">
-    <h1>Телефон</h1>
+    <h1>{{ product.name }}</h1>
   </div>
   <div class="content">
     <div class="col s12 m8">
-      <div class="card">
+      <div class="card" style="align-self: center">
+        <div class="card-content">
+          <b class="card-text">Стоимость: {{ product.price }} p.</b>
+        </div>
         <div class="card-image">
           <img src="{{ product.image }}">
-        </div>
-        <div class="card-content">
-          <span class="card-title blue-text">{{ product.name }}</span>
-          <b>Стоимость: {{ product.price }} p.</b>
         </div>
       </div>
     </div>

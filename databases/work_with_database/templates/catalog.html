@@ -7,25 +7,33 @@
     <h1><a href="/catalog">Каталог</a></h1>
   </div>
   <div class="sort-block">
-    <p>Сортировать по:\t</p>
-    <div class="nav-wrapper col s12">
-      <ul class="left hide-on-med-and-down">
-        <li class="{% if sort == "name" %}active{% endif %}"><a href="{% url "catalog" sort="name" %}">названию</a></li>
-        <li class="{% if sort == "min_price" %}active{% endif %}"><a href="{% url "catalog" sort="min_price" %}">начиная с дешёвых</a></li>
-        <li class="{% if sort == "max_price" %}active{% endif %}"><a href="{% url "catalog" sort="max_price" %}">начиная с дорогих</a></li>
-      </ul>
-    </div>
+    <nav class="row">
+      <p>Сортировать по: </p>
+      <div class="nav-wrapper col s12">
+        <ul class="right hide-on-med-and-down"></ul>
+          <li class="{% if sort == "name" %}active{% endif %}"><a href="{% url "catalog" sort="name" %}">названию</a></li>
+          <li class="{% if sort == "min_price" %}active{% endif %}"><a href="{% url "catalog" sort="min_price" %}">начиная с дешёвых</a></li>
+          <li class="{% if sort == "max_price" %}active{% endif %}"><a href="{% url "catalog" sort="max_price" %}">начиная с дорогих</a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
   <div class="content">
-    {% for item in products %}
     <div class="row">
-      <a href="{% url "product" slug=item.slug %}"><h1>{{ item.name }}</h1></a>
-      <br>
-      <b>Стоимость: {{ item.price }} p.</b>
-      <br>
-      <img src="{{ item.image }}">
-    </div>
+    {% for item in products %}
+      <div class="card">
+        <div class="card-content">
+          <a href="{% url "product" slug=item.slug %}"><h1 class="card-title">{{ item.name }}</h1></a>
+          <br>
+          <b class "card-text">Стоимость: {{ item.price }} p.</b>
+        </div>
+        <br>
+        <div class="card-image">
+          <img src="{{ item.image }}">
+        </div>
+      </div>
     {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock %}
