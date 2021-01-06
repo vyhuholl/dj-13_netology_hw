@@ -1,10 +1,10 @@
 from django.db import models
-from phones.get_phone_info import create_model
 
 # чтобы упростить задачу сбора данных, я поставила в модели
 # дефолтными те значения, которые совпадают у всех трёх
 # выбранных моделей телефона
 
+# сами модели создаются скриптом phones/get_phone_info.py
 
 class Phone(models.Model):
     name = models.CharField(max_length=50)
@@ -98,14 +98,3 @@ class Phone(models.Model):
     max_time_4G = models.IntegerField()
     max_time_music = models.IntegerField()
     max_time_video = models.IntegerField()
-
-
-# я зашла на сайт интернет-магазина МТС и выбрала
-# самые популярные модели смартфонов в трёх категориях
-# (Apple, Samsung и Honor), исключив информациию о
-# корпусе телефона, т. к., это не является
-# техническими характеристиками
-
-create_model('smartfon-apple-iphone-12-128gb-chjernyj')
-create_model('smartfon-samsung-a217-galaxy-a21s-3-32gb-black')
-create_model('smartfon-honor-7a-blue')

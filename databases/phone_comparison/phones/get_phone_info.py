@@ -4,6 +4,13 @@ from urllib.request import urlopen
 from collections import defaultdict
 from phones.models import Phone
 
+# я зашла на сайт интернет-магазина МТС и выбрала
+# самые популярные модели смартфонов в трёх категориях
+# (Apple, Samsung и Honor), исключив информациию о
+# корпусе телефона, т. к., это не является
+# техническими характеристиками
+
+
 
 def find_n(string, return_int=True):
     # вспомогательная функция, получающая на вход строку,
@@ -195,3 +202,8 @@ def create_model(slug):
         )
 
     phone.save()
+
+
+create_model('smartfon-apple-iphone-12-128gb-chjernyj')
+create_model('smartfon-samsung-a217-galaxy-a21s-3-32gb-black')
+create_model('smartfon-honor-7a-blue')
