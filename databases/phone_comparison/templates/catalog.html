@@ -16,9 +16,9 @@
       {% endfor %}
     </tr>
     <tr>
-      <th>Стоимость:</th>
+      <td>Стоимость:</td>
       {% for phone in object_list %}
-        <th>{{ phone.price }}</th>
+        <td>{{ phone.price }} p.</td>
       {% endfor %}
     </tr>
   </table>
@@ -26,57 +26,57 @@
   <table>
     <caption>Дисплей</caption>
     <tr>
-      <th>Тип цветного экрана:</th>
+      <td>Тип цветного экрана:</td>
       {% for phone in object_list %}
-        <th>{{ phone.screen_technology }}</th>
+        <td>{{ phone.screen_technology }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Сенсорный экран:</th>
+      <td>Сенсорный экран:</td>
       {% for phone in object_list %}
-        <th>Есть</th>
+        <td>Есть</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Тип сенсорного экрана:</th>
+      <td>Тип сенсорного экрана:</td>
       {% for phone in object_list %}
-        <th>емкостный</th>
+        <td>емкостный</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Мультитач:</th>
+      <td>Мультитач:</td>
       {% for phone in object_list %}
-        <th>Есть</th>
+        <td>Есть</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диагональ экрана:</th>
+      <td>Диагональ экрана:</td>
       {% for phone in object_list %}
-        <th>{{ phone.screen_diagonal }}</th>
+        <td>{{ phone.screen_diagonal }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение экрана:</th>
+      <td>Разрешение экрана:</td>
       {% for phone in object_list %}
-        <th>{{ phone.display_resolution }}</th>
+        <td>{{ phone.display_resolution }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Плотность точек, ppi:</th>
+      <td>Плотность точек, ppi:</td>
       {% for phone in object_list %}
-        <th>{% if phone.pixel_density %}{{ phone.pixel_density }}{% else %}–{% endif %}</th>
+        <td>{% if phone.pixel_density %}{{ phone.pixel_density }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Контрастность (X:1):</th>
+      <td>Контрастность (X:1):</td>
       {% for phone in object_list %}
-        <th>{% if phone.contrast %}{{ phone.contrast }}{% else %}–{% endif %}</th>
+        <td>{% if phone.contrast %}{{ phone.contrast }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Яркость, кд/м^2:</th>
+      <td>Яркость, кд/м^2:</td>
       {% for phone in object_list %}
-        <th>{% if phone.brightness %}{{ phone.brightness }}{% else %}–{% endif %}</th>
+        <td>{% if phone.brightness %}{{ phone.brightness }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
   </table>
@@ -84,36 +84,36 @@
   <table>
     <caption>Система</caption>
     <tr>
-      <th>Платформа:</th>
+      <td>Платформа:</td>
       {% for phone in object_list %}
-        <th>{{ phone.platform }}</th>
+        <td>{{ phone.platform }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Операционная система:</th>
+      <td>Операционная система:</td>
       {% for phone in object_list %}
-        <th>{{ phone.OS }}</th>
+        <td>{{ phone.OS }}</td>
       {% endfor %}
     </tr>
   </table>
 
   <table>
     <caption>Процессор</caption>
-    <th>Процессор:</th>
+    <td>Процессор:</td>
     {% for phone in object_list %}
-      <th>{% if phone.CPU %}{{ phone.CPU }}{% else %}–{% endif %}</th>
+      <td>{% if phone.CPU %}{{ phone.CPU }}{% else %}–{% endif %}</td>
     {% endfor %}
   </tr>
   <tr>
-    <th>Количество ядер:</th>
+    <td>Количество ядер:</td>
     {% for phone in object_list %}
-      <th>{% if phone.n_cores %}{{ phone.n_cores }}{% else %}–{% endif %}</th>
+      <td>{% if phone.n_cores %}{{ phone.n_cores }}{% else %}–{% endif %}</td>
     {% endfor %}
   </tr>
   <tr>
-    <th>Максимальная частота процессора, ГГц:</th>
+    <td>Максимальная частота процессора, ГГц:</td>
     {% for phone in object_list %}
-      <th>{% if phone.CPU_max_frequency %}{{ phone.CPU_max_frequency }}{% else %}–{% endif %}</th>
+      <td>{% if phone.CPU_max_frequency %}{{ phone.CPU_max_frequency }}{% else %}–{% endif %}</td>
     {% endfor %}
   </tr>
   </table>
@@ -121,147 +121,147 @@
   <table>
     <caption>Камера</caption>
     <tr>
-      <th>Камера:</th>
+      <td>Камера:</td>
       {% for phone in object_list %}
-        <th>Есть</th>
+        <td>Есть</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Количество модулей:</th>
+      <td>Количество модулей:</td>
       {% for phone in object_list %}
-        <th>{{ phone.cam_modules }}</th>
+        <td>{{ phone.cam_modules }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение основной камеры, Мп:</th>
+      <td>Разрешение основной камеры, Мп:</td>
       {% for phone in object_list %}
-        <th>{{ phone.cam_1st_module_resolution }}</th>
+        <td>{{ phone.cam_1st_module_resolution }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение второй основной камеры, Мп:</th>
+      <td>Разрешение второй основной камеры, Мп:</td>
       {% for phone in object_list %}
-        <th>{% if phone.cam_2nd_module_resolution %}{{ phone.cam_2nd_module_resolution }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cam_2nd_module_resolution %}{{ phone.cam_2nd_module_resolution }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение третьей основной камеры, Мп:</th>
+      <td>Разрешение третьей основной камеры, Мп:</td>
       {% for phone in object_list %}
-        <th>{% if phone.cam_3rd_module_resolution %}{{ phone.cam_3rd_module_resolution }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cam_3rd_module_resolution %}{{ phone.cam_3rd_module_resolution }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение четвертой основной камеры, Мп:</th>
+      <td>Разрешение четвертой основной камеры, Мп:</td>
       {% for phone in object_list %}
-        <th>{% if phone.cam_4th_module_resolution %}{{ phone.cam_4th_module_resolution }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cam_4td_module_resolution %}{{ phone.cam_4td_module_resolution }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диафрагма основной камеры (F/X):</th>
+      <td>Диафрагма основной камеры (F/X):</td>
       {% for phone in object_list %}
-        <th>{{ phone.cam_1st_module_aperture }}</th>
+        <td>{{ phone.cam_1st_module_aperture }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диафрагма второй камеры (F/X):</th>
+      <td>Диафрагма второй камеры (F/X):</td>
       {% for phone in object_list %}
-        <th>{% if phone.cam_2nd_module_aperture %}{{ phone.cam_2nd_module_aperture }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cam_2nd_module_aperture %}{{ phone.cam_2nd_module_aperture }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диафрагма третьей камеры (F/X):</th>
+      <td>Диафрагма третьей камеры (F/X):</td>
       {% for phone in object_list %}
-        <th>{% if phone.cam_3rd_module_aperture %}{{ phone.cam_3rd_module_aperture }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cam_3rd_module_aperture %}{{ phone.cam_3rd_module_aperture }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диафрагма четвертой камеры (F/X):</th>
+      <td>Диафрагма четвертой камеры (F/X):</td>
       {% for phone in object_list %}
-        <th>{% if phone.cam_4th_module_aperture %}{{ phone.cam_4th_module_aperture }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cam_4td_module_aperture %}{{ phone.cam_4td_module_aperture }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Фронтальная камера:</th>
+      <td>Фронтальная камера:</td>
       {% for phone in object_list %}
-        <th>Есть</th>
+        <td>Есть</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение фронтальной камеры, Мп:</th>
+      <td>Разрешение фронтальной камеры, Мп:</td>
       {% for phone in object_list %}
-        <th>{{ phone.front_resolution }}</th>
+        <td>{{ phone.front_resolution }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диафрагма фронтальной камеры (F/X):</th>
+      <td>Диафрагма фронтальной камеры (F/X):</td>
       {% for phone in object_list %}
-        <th>{{ phone.front_aperture }}</th>
+        <td>{{ phone.front_aperture }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Запись видеоклипов:</th>
+      <td>Запись видеоклипов:</td>
       {% for phone in object_list %}
-        <th>Есть</th>
+        <td>Есть</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение видеосъемки основной камеры (макс):</th>
+      <td>Разрешение видеосъемки основной камеры (макс):</td>
       {% for phone in object_list %}
-        <th>{% if phone.video_resolution %}{{ phone.video_resolution }}{% else %}–{% endif %}</th>
+        <td>{% if phone.video_resolution %}{{ phone.video_resolution }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разрешение видеосъемки фронтальной камеры (макс):</th>
+      <td>Разрешение видеосъемки фронтальной камеры (макс):</td>
       {% for phone in object_list %}
-        <th>{% if phone.front_video_resolution %}{{ phone.front_video_resolution }}{% else %}–{% endif %}</th>
+        <td>{% if phone.front_video_resolution %}{{ phone.front_video_resolution }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Частота кадров при видеосъемке:</th>
+      <td>Частота кадров при видеосъемке:</td>
       {% for phone in object_list %}
-        <th>{% if phone.video_frame_rate %}{{ phone.video_frame_rate }}{% else %}–{% endif %}</th>
+        <td>{% if phone.video_frame_rate %}{{ phone.video_frame_rate }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Цифровой Zoom при фотосъемке:</th>
+      <td>Цифровой Zoom при фотосъемке:</td>
       {% for phone in object_list %}
-        <th>{% if phone.digital_zoom_photo %}{{ phone.digital_zoom_photo }}{% else %}–{% endif %}</th>
+        <td>{% if phone.digital_zoom_photo %}{{ phone.digital_zoom_photo }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Цифровой Zoom при видеосъемке:</th>
+      <td>Цифровой Zoom при видеосъемке:</td>
       {% for phone in object_list %}
-        <th>{% if phone.digital_zoom_video %}{{ phone.digital_zoom_video }}{% else %}–{% endif %}</th>
+        <td>{% if phone.digital_zoom_video %}{{ phone.digital_zoom_video }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Оптический Zoom при фотосъемке:</th>
+      <td>Оптический Zoom при фотосъемке:</td>
       {% for phone in object_list %}
-        <th>{% if phone.optical_zoom_photo %}{{ phone.optical_zoom_photo }}{% else %}–{% endif %}</th>
+        <td>{% if phone.optical_zoom_photo %}{{ phone.optical_zoom_photo }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Оптический Zoom при видеосъемке:</th>
+      <td>Оптический Zoom при видеосъемке:</td>
       {% for phone in object_list %}
-        <th>{% if phone.optical_zoom_video %}{{ phone.optical_zoom_video }}{% else %}–{% endif %}</th>
+        <td>{% if phone.optical_zoom_video %}{{ phone.optical_zoom_video }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Встроенная вспышка:</th>
+      <td>Встроенная вспышка:</td>
       {% for phone in object_list %}
-        <th>Есть</th>
+        <td>Есть</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Тип вспышки:</th>
+      <td>Тип вспышки:</td>
       {% for phone in object_list %}
-        <th>Светодиодная</th>
+        <td>Светодиодная</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Функции камеры:</th>
+      <td>Функции камеры:</td>
       {% for phone in object_list %}
-        <th>{{ phone.cam_functions }}</th>
+        <td>{{ phone.cam_functions }}</td>
       {% endfor %}
     </tr>
   </table>
@@ -269,39 +269,39 @@
   <table>
     <caption>Память</caption>
     <tr>
-      <th>Объем встроенной памяти, Гб:</th>
+      <td>Объем встроенной памяти, Гб:</td>
       {% for phone in object_list %}
-        <th>{{ phone.memory }}</th>
+        <td>{{ phone.memory }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Объем доступной памяти, Гб:</th>
+      <td>Объем доступной памяти, Гб:</td>
       {% for phone in object_list %}
-        <th>{% if phone.availiable_memory %}{{ phone.availiable_memory }}{% else %}–{% endif %}</th>
+        <td>{% if phone.availiable_memory %}{{ phone.availiable_memory }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Объем оперативной памяти, Гб:</th>
+      <td>Объем оперативной памяти, Гб:</td>
       {% for phone in object_list %}
-        <th>{% if phone.RAM %}{{ phone.RAM }}{% else %}–{% endif %}</th>
+        <td>{% if phone.RAM %}{{ phone.RAM }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Слот для карты памяти:</th>
+      <td>Слот для карты памяти:</td>
       {% for phone in object_list %}
-        <th>{% if phone.cartridge %}Есть.{% else %}–{% endif %}</th>
+        <td>{% if phone.cartridge %}Есть.{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Тип карты памяти:</th>
+      <td>Тип карты памяти:</td>
       {% for phone in object_list %}
-        <th>{% if phone.cartridge_type %}{{ phone.cartridge_type }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cartridge_type %}{{ phone.cartridge_type }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Максимальный объем карты памяти, Гб:</th>
+      <td>Максимальный объем карты памяти, Гб:</td>
       {% for phone in object_list %}
-        <th>{% if phone.cartridge_max_capacity %}{{ phone.cartridge_max_capacity }}{% else %}–{% endif %}</th>
+        <td>{% if phone.cartridge_max_capacity %}{{ phone.cartridge_max_capacity }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
   </table>
@@ -309,9 +309,9 @@
   <table>
     <caption>Звук</caption>
     <tr>
-      <th>Стереозвук:</th>
+      <td>Стереозвук:</td>
       {% for phone in object_list %}
-        <th>{% if phone.stereo_sound %}Есть.{% else %}–{% endif %}</th>
+        <td>{% if phone.stereo_sound %}Есть.{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
   </table>
@@ -319,21 +319,21 @@
   <table>
     <caption>Мультимедиа</caption>
     <tr>
-      <th>Мультимедийные возможности:</th>
+      <td>Мультимедийные возможности:</td>
       {% for phone in object_list %}
-        <th>Аудиоплеер, Видеоплеер</th>
+        <td>Аудиоплеер, Видеоплеер</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Поддержка звуковых форматов:</th>
+      <td>Поддержка звуковых форматов:</td>
       {% for phone in object_list %}
-        <th>{% if phone.audio_formats %}{{ phone.audio_formats }}{% else %}–{% endif %}</th>
+        <td>{% if phone.audio_formats %}{{ phone.audio_formats }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Поддержка видео форматов:</th>
+      <td>Поддержка видео форматов:</td>
       {% for phone in object_list %}
-        <th>{% if phone.video_formats %}{{ phone.video_formats }}{% else %}–{% endif %}</th>
+        <td>{% if phone.video_formats %}{{ phone.video_formats }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
   </table>
@@ -341,15 +341,15 @@
   <table>
     <caption>Датчики</caption>
     <tr>
-      <th>Основные датчики:</th>
+      <td>Основные датчики:</td>
       {% for phone in object_list %}
-        <th>{{ phone.sensors }}</th>
+        <td>{{ phone.sensors }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Дополнительные датчики:</th>
+      <td>Дополнительные датчики:</td>
       {% for phone in object_list %}
-        <th>{{ phone.sensors_additional }}</th>
+        <td>{{ phone.sensors_additional }}</td>
       {% endfor %}
     </tr>
   </table>
@@ -357,51 +357,51 @@
   <table>
     <caption>Связь</caption>
     <tr>
-      <th>Стандарты сотовой связи:</th>
+      <td>Стандарты сотовой связи:</td>
       {% for phone in object_list %}
-        <th>{{ phone.cellular_standards }}</th>
+        <td>{{ phone.cellular_standards }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диапазоны GSM:</th>
+      <td>Диапазоны GSM:</td>
       {% for phone in object_list %}
-        <th>1800, 1900, 850, 900</th>
+        <td>1800, 1900, 850, 900</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диапазоны 3G (UMTS):</th>
+      <td>Диапазоны 3G (UMTS):</td>
       {% for phone in object_list %}
-        <th>{{ phone.UMTS_3G_ranges }}</th>
+        <td>{{ phone.UMTS_3G_ranges }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Диапазоны LTE:</th>
+      <td>Диапазоны LTE:</td>
       {% for phone in object_list %}
-        <th>{{ phone.LTE_ranges }}</th>
+        <td>{{ phone.LTE_ranges }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Интернет:</th>
+      <td>Интернет:</td>
       {% for phone in object_list %}
-        <th>{{ phone.internet }}</th>
+        <td>{{ phone.internet }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Количество SIM-карт:</th>
+      <td>Количество SIM-карт:</td>
       {% for phone in object_list %}
-        <th>{{ phone.n_sim }}</th>
+        <td>{{ phone.n_sim }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Тип SIM-карты:</th>
+      <td>Тип SIM-карты:</td>
       {% for phone in object_list %}
-        <th>{{ phone.sim_type }}</th>
+        <td>{{ phone.sim_type }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Режим работы SIM-карт:</th>
+      <td>Режим работы SIM-карт:</td>
       {% for phone in object_list %}
-        <th>{% if phone.sim_work_mode %}{{ phone.sim_work_mode }}{% else %}–{% endif %}</th>
+        <td>{% if phone.sim_work_mode %}{{ phone.sim_work_mode }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
   </table>
@@ -409,45 +409,45 @@
   <table>
     <caption>Соединение</caption>
     <tr>
-      <th>Беспроводное соединение:</th>
+      <td>Беспроводное соединение:</td>
       {% for phone in object_list %}
-        <th>{{ phone.wireless }}</th>
+        <td>{{ phone.wireless }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Wi-Fi:</th>
+      <td>Wi-Fi:</td>
       {% for phone in object_list %}
-        <th>{{ phone.wifi }}</th>
+        <td>{{ phone.wifi }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Wi-Fi Direct:</th>
+      <td>Wi-Fi Direct:</td>
       {% for phone in object_list %}
-        <th>{% if phone.wifi_direct %}{{ phone.wifi_direct }}{% else %}–{% endif %}</th>
+        <td>{% if phone.wifi_direct %}{{ phone.wifi_direct }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Bluetooth:</th>
+      <td>Bluetootd:</td>
       {% for phone in object_list %}
-        <th>{{ phone.bluetooth }}</th>
+        <td>{{ phone.bluetootd }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Профили Bluetooth:</th>
+      <td>Профили Bluetootd:</td>
       {% for phone in object_list %}
-        <th>{% if phone.bluetooth_profiles %}{{ phone.bluetooth_profiles }}{% else %}–{% endif %}</th>
+        <td>{% if phone.bluetootd_profiles %}{{ phone.bluetootd_profiles }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Проводное соединение:</th>
+      <td>Проводное соединение:</td>
       {% for phone in object_list %}
-        <th>{{ phone.wired_connection }}</th>
+        <td>{{ phone.wired_connection }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Разъем для наушников:</th>
+      <td>Разъем для наушников:</td>
       {% for phone in object_list %}
-        <th>{{ phone.headphone_jack }}</th>
+        <td>{{ phone.headphone_jack }}</td>
       {% endfor %}
     </tr>
   </table>
@@ -455,15 +455,15 @@
   <table>
     <caption>Навигация</caption>
     <tr>
-      <th>Навигация:</th>
+      <td>Навигация:</td>
       {% for phone in object_list %}
-        <th>{{ phone.navigation }}</th>
+        <td>{{ phone.navigation }}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Цифровой компас:</th>
+      <td>Цифровой компас:</td>
       {% for phone in object_list %}
-        <th>{% if phone.digital_compass %}Есть.{% else %}–{% endif %}</th>
+        <td>{% if phone.digital_compass %}Есть.{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
   </table>
@@ -471,45 +471,45 @@
   <table>
     <caption>Питание</caption>
     <tr>
-      <th>Тип аккумулятора:</th>
+      <td>Тип аккумулятора:</td>
       {% for phone in object_list %}
-        <th>{% if phone.battery_type %}{{ phone.battery_type }}{% else %}–{% endif %}</th>
+        <td>{% if phone.battery_type %}{{ phone.battery_type }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Емкость аккумулятора, mAh:</th>
+      <td>Емкость аккумулятора, mAh:</td>
       {% for phone in object_list %}
-        <th>{% if phone.battery_capacity %}{{ phone.battery_capacity }}{% else %}–{% endif %}</th>
+        <td>{% if phone.battery_capacity %}{{ phone.battery_capacity }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Время работы в интернете через Wi-Fi до ч:</th>
+      <td>Время работы в интернете через Wi-Fi до ч:</td>
       {% for phone in object_list %}
-        <th>{% if phone.max_time_wifi %}{{ phone.max_time_wifi }}{% else %}–{% endif %}</th>
+        <td>{% if phone.max_time_wifi %}{{ phone.max_time_wifi }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Время в режиме разговора в сети 4G до ч:</th>
+      <td>Время в режиме разговора в сети 4G до ч:</td>
       {% for phone in object_list %}
-        <th>{% if phone.max_time_4G_talk %}{{ phone.max_time_4G_talk }}{% else %}–{% endif %}</th>
+        <td>{% if phone.max_time_4G_talk %}{{ phone.max_time_4G_talk }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Время работы в интернете в сети 4G до ч:</th>
+      <td>Время работы в интернете в сети 4G до ч:</td>
       {% for phone in object_list %}
-        <th>{% if phone.max_time_4G %}{{ phone.max_time_4G }}{% else %}–{% endif %}</th>
+        <td>{% if phone.max_time_4G %}{{ phone.max_time_4G }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Время работы в режиме прослушивания музыки до ч:</th>
+      <td>Время работы в режиме прослушивания музыки до ч:</td>
       {% for phone in object_list %}
-        <th>{% if phone.max_time_music %}{{ phone.max_time_music }}{% else %}–{% endif %}</th>
+        <td>{% if phone.max_time_music %}{{ phone.max_time_music }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
     <tr>
-      <th>Время работы в режиме просмотра видео до ч:</th>
+      <td>Время работы в режиме просмотра видео до ч:</td>
       {% for phone in object_list %}
-        <th>{% if phone.max_time_video %}{{ phone.max_time_video }}{% else %}–{% endif %}</th>
+        <td>{% if phone.max_time_video %}{{ phone.max_time_video }}{% else %}–{% endif %}</td>
       {% endfor %}
     </tr>
   </table>
