@@ -20,5 +20,5 @@ from phones.views import PhoneListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', PhoneListView.as_view())
+    path('', PhoneListView.as_view(template_name='catalog.html'))
 ]
