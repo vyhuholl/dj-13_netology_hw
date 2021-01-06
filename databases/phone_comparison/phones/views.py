@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from phones.models import Phone
+from models import Phone
 
 
 class PhoneListView(ListView):
