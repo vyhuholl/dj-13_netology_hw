@@ -54,12 +54,12 @@ class Phone(models.Model):
     flash_type = models.CharField(max_length=15, default='Светодиодная')
     cam_functions = models.CharField(max_length=300)
 
-    memory = models.IntegerField()
-    availiable_memory = models.IntegerField(blank=True)
-    RAM = models.IntegerField(blank=True)
+    memory = models.FloatField()
+    availiable_memory = models.FloatField(blank=True)
+    RAM = models.FloatField(blank=True)
     cartridge = models.BooleanField(default=False)
     cartridge_type = models.CharField(max_length=20, blank=True)
-    cartridge_max_capacity = models.IntegerField(blank=True)
+    cartridge_max_capacity = models.FloatField(blank=True)
 
     stereo_sound = models.BooleanField(default=False)
 

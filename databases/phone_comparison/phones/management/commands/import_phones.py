@@ -18,7 +18,7 @@ def find_n(string, return_int=True):
     if string is None:
         return None
     n = re.search(r'[\d\.]+', string).group(0)
-    return int(n) if return_int else float(n)
+    return float(n) if not return_int else int(n)
 
 
 def create_model(slug):
