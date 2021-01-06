@@ -19,7 +19,8 @@
   </div>
   {% if prev %}
     <a class="button button-primary" href="/books/{{ prev }}">⟵ {{ prev }}</a>
-  {% if next %}
+  {% endif %}  {% if next %}
     <a class="button button-primary" href="/books/{{ next }}">{{ next }} ⟶</a>
+  {% endif %}
 </div>
 {% endblock %}
