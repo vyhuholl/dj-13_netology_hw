@@ -82,7 +82,7 @@ class Phone(models.Model):
     sim_work_mode = models.CharField(max_length=15, null=True)
 
     wireless = models.CharField(max_length=30)
-    wifi = models.CharField(max_length=30)
+    wifi = models.CharField(max_length=50)
     wifi_direct = models.BooleanField(default=False)
     bluetooth = models.FloatField()
     bluetooth_profiles = models.CharField(max_length=10, null=True)
