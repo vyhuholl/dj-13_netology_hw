@@ -2,7 +2,7 @@ import re
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from collections import defaultdict
-from phones.models import Phone
+from models import Phone
 
 # я зашла на сайт интернет-магазина МТС и выбрала
 # самые популярные модели смартфонов в трёх категориях
