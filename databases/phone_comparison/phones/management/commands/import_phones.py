@@ -90,14 +90,15 @@ def create_model(slug):
         specs_dict['Оптический Zoom при видеосъемке'])
     params['cam_functions'] = specs_dict['Функции камеры']
 
-    params['memory'] = find_n(specs_dict['Объем встроенной памяти'])
-    params['availiable_memory'] = find_n(specs_dict['Объем доступной памяти'])
-    params['RAM'] = find_n(specs_dict['Объем оперативной памяти'])
+    params['memory'] = find_n(specs_dict['Объем встроенной памяти'], False)
+    params['availiable_memory'] = find_n(
+        specs_dict['Объем доступной памяти'], False)
+    params['RAM'] = find_n(specs_dict['Объем оперативной памяти'], False)
     if specs_dict['Слот для карты памяти']:
         params['cartridge'] = True
         params['cartridge_type'] = 'microSD (TransFlash)'
         params['cartridge_max_capacity'] = find_n(
-            specs_dict['Максимальный объем карты памяти'])
+            specs_dict['Максимальный объем карты памяти'], False)
 
     if specs_dict['Стереозвук']:
         params['stereo_sound'] = True
