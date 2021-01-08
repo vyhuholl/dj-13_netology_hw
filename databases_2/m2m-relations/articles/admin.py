@@ -7,7 +7,9 @@ from articles.models import Article, Scope, ArticleToScope
 class ArticleToScopeInlineFormset(BaseInlineFormSet):
 
     def clean(self):
-        primary_count = sum(self.forms[0].cleaned_data['primary'])
+        primary_count = sum(
+            [form.cleaned_data['primary'] for form in self.forms]
+            )
         if primary_count > 1:
             raise ValidationError('Основная категория может быть только одна')
         elif primary_count == 0 and not self.forms[0].is_bound:
@@ -20,6 +22,7 @@ class ArticleToScopeInline(admin.TabularInline):
 
     model = ArticleToScope
     formset = ArticleToScopeInlineFormset
+    extra = 0
 
 
 @admin.register(Article)
