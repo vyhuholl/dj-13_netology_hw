@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from articles.models import Article, Scope, ArticleToScope
 
-# все ordering-и у меня внутри класса Meta каждого класса,
+# все ordering-и у меня внутри класса Meta каждого класса
+# и внутри классов ArticleAdmin и ScopeAdmin,
 # поэтому здесь метод order_by() я не использовала
 
 
