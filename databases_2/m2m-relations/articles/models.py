@@ -23,7 +23,9 @@ class Article(models.Model):
 
 class Scope(models.Model):
 
-    scope = models.CharField(max_length=25, unique=True)
+    scope = models.CharField(
+        max_length=25, unique=True, verbose_name='Название'
+        )
 
     class Meta:
 
