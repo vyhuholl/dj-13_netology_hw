@@ -10,7 +10,8 @@ class RelationshipInlineFormset(BaseInlineFormSet):
             primary_scopes_count = sum(self.forms[0]['primary'])
             if primary_scopes_count > 1:
                 raise ValidationError(
-            'Основная категория может быть только одна')
+                    'Основная категория может быть только одна'
+                    )
             elif primary_scopes_count == 0:
                 raise ValidationError('Укажите основную категорию')
 
@@ -25,4 +26,3 @@ class RelationshipInline(admin.TabularInline):
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     inlines = [RelationshipInline]
-

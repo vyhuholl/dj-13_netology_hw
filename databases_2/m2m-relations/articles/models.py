@@ -21,7 +21,7 @@ class Article(models.Model):
     image = models.ImageField(null=True, verbose_name='Изображение')
     scopes = models.ManyToManyField(
         ArticleScope, through='Relationship',
-        through_fields = ('scope', 'primary')
+        through_fields=('scope', 'primary')
         )
 
     class Meta:
