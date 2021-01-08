@@ -1,13 +1,13 @@
-from django.views.generic import ListView
 from django.shortcuts import render
-from articles.models import ArticleToScope
+from articles.models import Article, Scope, ArticleToScope
+
+# все ordering-и у меня внутри класса Meta каждого класса,
+# поэтому здесь метод order_by() я не использовала
 
 
-class ArticleToScopeListView(ListView):
-
-    model = ArticleToScope
-    template_name = 'articles/news.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+def articles_view(request):
+    return render(
+        request, 'articles/news.html',
+        context={
+            'object_list': Article.objects.all().prefetch_related('scopes')
+            })

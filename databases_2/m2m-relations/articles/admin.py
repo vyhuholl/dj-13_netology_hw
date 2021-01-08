@@ -34,5 +34,4 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(Scope)
 class ScopeAdmin(admin.ModelAdmin):
-
-    ordering = ['topic']
+    pass
