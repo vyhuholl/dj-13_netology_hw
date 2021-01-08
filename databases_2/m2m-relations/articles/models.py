@@ -46,4 +46,7 @@ class ArticleToScope(models.Model):
     primary = models.BooleanField(verbose_name='Основной')
 
     class Meta:
+
+        verbose_name = 'Тематика Статьи'
+        verbose_name_plural = 'Тематики Статьи'
         ordering = ['-primary', 'scope__scope']
