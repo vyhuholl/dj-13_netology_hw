@@ -23,7 +23,7 @@ class Article(models.Model):
 
 class Scope(models.Model):
 
-    scope = models.CharField(max_length=25, unique=True, verbose_name='Раздел')
+    scope = models.CharField(max_length=25, unique=True)
 
     class Meta:
 
@@ -40,9 +40,10 @@ class ArticleToScope(models.Model):
         Article, on_delete=models.CASCADE, related_name='articles'
         )
     scope = models.ForeignKey(
-        Scope, on_delete=models.CASCADE, related_name='scopes'
+        Scope, on_delete=models.CASCADE,
+        related_name='scopes', verbose_name='Раздел'
         )
-    primary = models.BooleanField()
+    primary = models.BooleanField(verbose_name='Основной')
 
     class Meta:
         ordering = ['-primary', 'scope__scope']
