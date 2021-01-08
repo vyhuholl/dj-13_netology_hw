@@ -33,7 +33,6 @@ class Scope(models.Model):
 
         verbose_name = 'Раздел'
         verbose_name_plural = 'Разделы'
-        ordering = ['topic']
 
     def __str__(self):
         return self.topic
@@ -42,10 +41,10 @@ class Scope(models.Model):
 class ArticleToScope(models.Model):
 
     article = models.ForeignKey(
-        Article, on_delete=models.CASCADE, related_name='as_articles'
+        Article, on_delete=models.CASCADE, related_name='as_article'
         )
     scope = models.ForeignKey(
-        Scope, on_delete=models.CASCADE, related_name='as_scopes',
+        Scope, on_delete=models.CASCADE, related_name='as_scope',
         verbose_name='Раздел'
         )
     is_main = models.BooleanField(verbose_name='Основной')

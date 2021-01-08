@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django.forms import BaseInlineFormSet
 from django.core.exceptions import ValidationError
+from django.forms import ModelForm, BaseInlineFormSet
 from articles.models import Article, Scope, ArticleToScope
 
 
@@ -30,6 +30,7 @@ class ArticleToScopeInline(admin.TabularInline):
 class ArticleAdmin(admin.ModelAdmin):
 
     inlines = [ArticleToScopeInline]
+    ordering = ['-published_at']
 
 
 @admin.register(Scope)
