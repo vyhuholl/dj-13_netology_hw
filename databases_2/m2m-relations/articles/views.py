@@ -4,6 +4,7 @@ from articles.models import Article
 
 
 class ArticleListView(ListView):
+
     model = Article
     template_name = 'news.html'
     ordering = '-published_at'

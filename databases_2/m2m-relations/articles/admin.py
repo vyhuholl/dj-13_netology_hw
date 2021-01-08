@@ -1,28 +1,33 @@
-from django.core.exceptions import ValidationError
-from django.forms import BaseInlineFormSet
 from django.contrib import admin
-from models import Article, Relationship
+from django.forms import BaseInlineFormSet
+from django.core.exceptions import ValidationError
+from articles.models import Article, Scope, ArticleToScope
 
 
-class RelationshipInlineFormset(BaseInlineFormSet):
+class ArticleToScopeInlineFormset(BaseInlineFormSet):
+
     def clean(self):
-        if self.forms[0].is_bound:
-            primary_scopes_count = sum(self.forms[0]['primary'])
-            if primary_scopes_count > 1:
-                raise ValidationError(
-                    'Основная категория может быть только одна'
-                    )
-            elif primary_scopes_count == 0:
-                raise ValidationError('Укажите основную категорию')
-
+        primary_count = sum(self.forms[0].cleaned_data['primary'])
+        if primary_count > 1:
+            raise ValidationError('Основная категория может быть только одна')
+        elif primary_count == 0 and not self.forms[0].is_bound:
+            # я решила не выводить ValidationError для пустых форм
+            raise ValidationError('Укажите основную категорию')
         return super().clean()
 
 
-class RelationshipInline(admin.TabularInline):
-    model = Relationship
-    formset = RelationshipInlineFormset
+class ArticleToScopeInline(admin.TabularInline):
+
+    model = ArticleToScope
+    formset = ArticleToScopeInlineFormset
 
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    inlines = [RelationshipInline]
+
+    inlines = [ArticleToScopeInline]
+
+
+@admin.register(Scope)
+class ScopeAdmin(admin.ModelAdmin):
+    pass
