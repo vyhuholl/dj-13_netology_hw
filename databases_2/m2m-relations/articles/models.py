@@ -23,7 +23,7 @@ class Article(models.Model):
 
 class Scope(models.Model):
 
-    scope = models.CharField(
+    topic = models.CharField(
         max_length=25, unique=True, verbose_name='Название'
         )
 
@@ -33,7 +33,7 @@ class Scope(models.Model):
         verbose_name_plural = 'Тематика Статьи'
 
     def __str__(self):
-        return self.scope
+        return self.topic
 
 
 class ArticleToScope(models.Model):
@@ -45,10 +45,10 @@ class ArticleToScope(models.Model):
         Scope, on_delete=models.CASCADE,
         related_name='scopes', verbose_name='Раздел'
         )
-    primary = models.BooleanField(verbose_name='Основной')
+    is_main = models.BooleanField(verbose_name='Основной')
 
     class Meta:
 
         verbose_name = 'Тематика Статьи'
         verbose_name_plural = 'Тематики Статьи'
-        ordering = ['-primary', 'scope__scope']
+        ordering = ['-is_main', 'scope__topic']

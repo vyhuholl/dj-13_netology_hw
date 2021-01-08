@@ -1,11 +1,11 @@
 from django.views.generic import ListView
 from django.shortcuts import render
-from articles.models import Article
+from articles.models import ArticleToScope
 
 
-class ArticleListView(ListView):
+class ArticleToScopeListView(ListView):
 
-    model = Article
+    model = ArticleToScope
     template_name = 'articles/news.html'
     ordering = '-published_at'
 
