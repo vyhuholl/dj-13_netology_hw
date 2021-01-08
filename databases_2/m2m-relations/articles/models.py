@@ -15,6 +15,7 @@ class Article(models.Model):
 
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
+        ordering = '-published_at'
 
     def __str__(self):
         return self.title

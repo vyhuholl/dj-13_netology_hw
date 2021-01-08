@@ -6,7 +6,7 @@ from articles.models import Article
 class ArticleListView(ListView):
 
     model = Article
-    template_name = 'news.html'
+    template_name = 'articles/news.html'
     ordering = '-published_at'
 
     def get_context_data(self, **kwargs):
