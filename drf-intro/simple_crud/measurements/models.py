@@ -33,3 +33,4 @@ class Measurement(TimestampFields):
 
     value = models.FloatField()
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    image = models.ImageField(null=True)
