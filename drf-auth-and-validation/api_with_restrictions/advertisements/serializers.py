@@ -1,7 +1,10 @@
 from django.contrib.auth.models import User
+from rest_framework import status
 from rest_framework import serializers
+from rest_framework.response import Response
+from rest_framework.exceptions import ValidationError
 
-from advertisements.models import Advertisement
+from advertisements.models import Advertisement, Favourites
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -40,6 +43,35 @@ class AdvertisementSerializer(serializers.ModelSerializer):
     def validate(self, data):
         """Метод для валидации. Вызывается при создании и обновлении."""
 
-        # TODO: добавьте требуемую валидацию
-
+        ads = Advertisement.objects.select_related().filter(
+            creator__username=self.context['request'].user,
+            status='OPEN'
+        )
+        if len(ads) == 10:
+            raise ValidationError(
+        {'error': 'One user can have no more than 10 open ads!'}
+        )
         return data
+
+
+class FavouritesSerializer(serializers.ModelSerializer):
+    """Serializer для избранного объявления."""
+
+    class Meta:
+        model = Favourites
+        fields = ('advertisement',)
+
+    def create(self, validated_data):
+        """Метод для создания"""
+
+        validated_data['user_id'] = self.context['request'].user.id
+        return super().create(validated_data)
+
+    def validate(self, attrs):
+        """Метод для валидации. Вызывается при создании и обновлении."""
+
+        if self.context['request'].user == attrs['advertisement'].creator:
+            raise ValidationError(
+        {'error': 'Your own ads cannot be in favourites.'}
+        )
+        return attrs
