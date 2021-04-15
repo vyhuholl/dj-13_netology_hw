@@ -99,5 +99,22 @@ def test_course_delete(api_client, student_factory, course_factory):
     courses_ids = {
         course[id] for course in api_client.get(reverse('courses_list')).json()
         }
-    assert resp.status_code == HTTP_204_OK
+    assert resp.status_code == HTTP_204_NO_CONTENT
     assert course_id not in courses_ids
+
+
+@pytest.mark.parametrize(
+    ['students_per_course', 'expected_value'],
+    (
+        (0, False),
+        (randint(1, 20), True),
+        (20, True),
+        (randint(21, 100), False),
+        (randint(-100, -1), False)
+    )
+)
+
+
+def test_course_max_students(settings, students_per_course, expected_value):
+    res = 0 < students_per_course <= settings.MAX_STUDENTS_PER_COURSE
+    assert res == expected_value
