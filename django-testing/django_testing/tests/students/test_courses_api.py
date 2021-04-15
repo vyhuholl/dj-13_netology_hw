@@ -97,7 +97,7 @@ def test_course_delete(api_client, student_factory, course_factory):
     url = reverse('courses-detail', args=[course_id])
     resp = api_client.delete(url)
     courses_ids = {
-        course[id] for course in api_client.get(reverse('courses_list')).json()
+        course[id] for course in api_client.get(reverse('courses-list')).json()
         }
     assert resp.status_code == HTTP_204_NO_CONTENT
     assert course_id not in courses_ids
