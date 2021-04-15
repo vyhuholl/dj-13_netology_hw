@@ -100,4 +100,4 @@ def test_course_delete(api_client, student_factory, course_factory):
         course[id] for course in api_client.get(reverse('courses_list')).json()
         }
     assert resp.status_code == HTTP_204_OK
-    assert course_id is not in courses_ids
+    assert course_id not in courses_ids
